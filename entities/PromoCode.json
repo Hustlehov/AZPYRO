@@ -1,0 +1,56 @@
+{
+  "name": "PromoCode",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "The promo code string (uppercase)"
+    },
+    "discount_type": {
+      "type": "string",
+      "enum": [
+        "percent",
+        "fixed"
+      ],
+      "description": "Percent off or fixed dollar amount off"
+    },
+    "discount_value": {
+      "type": "number",
+      "description": "Value of the discount"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "min_order": {
+      "type": "number",
+      "description": "Minimum order total to apply"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "code",
+    "discount_type",
+    "discount_value"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

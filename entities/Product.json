@@ -1,0 +1,91 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "price": {
+      "type": "number",
+      "description": "Price in USD"
+    },
+    "description": {
+      "type": "string",
+      "description": "Product description"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "cakes",
+        "shells",
+        "rockets",
+        "crackers",
+        "girandolas",
+        "novelty",
+        "bundles"
+      ],
+      "description": "Product category"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags for this product (e.g. rockets, cakes, etc.)"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Product image URL"
+    },
+    "shots": {
+      "type": "number",
+      "description": "Number of shots (for cakes)"
+    },
+    "duration": {
+      "type": "string",
+      "description": "Duration of the firework"
+    },
+    "warning": {
+      "type": "string",
+      "description": "Safety warning for this product"
+    },
+    "in_stock": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the product is in stock"
+    },
+    "inventory": {
+      "type": "number",
+      "description": "Number of units available in stock"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to feature on homepage"
+    }
+  },
+  "required": [
+    "name",
+    "price",
+    "category"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "customer_name": {
+      "type": "string",
+      "description": "Customer full name"
+    },
+    "customer_email": {
+      "type": "string",
+      "description": "Customer email"
+    },
+    "customer_phone": {
+      "type": "string",
+      "description": "Customer phone number"
+    },
+    "items": {
+      "type": "array",
+      "description": "Order items",
+      "items": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string"
+          },
+          "product_name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "total": {
+      "type": "number",
+      "description": "Order total after discounts"
+    },
+    "subtotal": {
+      "type": "number",
+      "description": "Order subtotal before discounts"
+    },
+    "discount_amount": {
+      "type": "number",
+      "description": "Discount applied"
+    },
+    "promo_code": {
+      "type": "string",
+      "description": "Promo code used"
+    },
+    "fulfillment_type": {
+      "type": "string",
+      "enum": [
+        "pickup",
+        "shipping"
+      ],
+      "description": "How the order will be fulfilled"
+    },
+    "shipping_address": {
+      "type": "string",
+      "description": "Shipping address if shipping"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "confirmed",
+        "ready",
+        "completed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Special instructions"
+    },
+    "email_verified": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "customer_name",
+    "customer_phone",
+    "items",
+    "total",
+    "fulfillment_type"
+  ]
+}

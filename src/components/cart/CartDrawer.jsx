@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Minus, Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
+import { Separator } from '@/components/ui/Separator';
 
 export default function CartDrawer({ isOpen, onClose, items, onUpdateQuantity, onRemove, onCheckout }) {
   const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
